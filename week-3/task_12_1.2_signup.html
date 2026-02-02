@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <style>
+body {
+  font-family: sans-serif;
+  background: #f6f6f6;
+}
+
+.auth-container {
+  max-width: 360px;
+  margin: 80px auto;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+}
+
+  </style>
+</head>
+<body>
+
+<main class="auth-container">
+  <h1>Sign Up</h1>
+
+  <form aria-labelledby="signup-title">
+    <div class="field">
+      <label for="name">Full Name</label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        required
+        aria-required="true"
+        aria-label="Full name"
+      >
+    </div>
+
+    <div class="field">
+      <label for="signup-email">Email</label>
+      <input
+        id="signup-email"
+        type="email"
+        name="email"
+        required
+        aria-required="true"
+        aria-label="Email address"
+      >
+    </div>
+
+    <div class="field">
+      <label for="signup-password">Password</label>
+      <input
+        id="signup-password"
+        type="password"
+        name="password"
+        required
+        aria-required="true"
+        aria-label="Create password"
+      >
+    </div>
+
+    <div class="field">
+      <label for="confirm-password">Confirm Password</label>
+      <input
+        id="confirm-password"
+        type="password"
+        name="confirm_password"
+        required
+        aria-required="true"
+        aria-label="Confirm password"
+      >
+    </div>
+
+    <button type="submit">Create Account</button>
+  </form>
+</main>
+
+</body>
+</html>

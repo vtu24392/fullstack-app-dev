@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Media Blog</title>
+  <style>
+    body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  header, footer {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  main {
+    max-width: 700px;
+  }
+
+  article {
+    margin-bottom: 40px;
+  }
+
+  aside {
+    border-top: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 10px;
+  }
+
+  video, audio {
+    margin-top: 10px;
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Media Blog</h1>
+  <p>Articles with video and audio</p>
+</header>
+
+<main>
+
+  <!-- ARTICLE WITH VIDEO -->
+  <article>
+    <h2>Understanding Web Media</h2>
+    <p>
+      HTML5 provides native support for audio and video without plugins.
+    </p>
+
+    <video controls width="100%">
+      <source src="mov_bbb.mp4" type="video/mp4">
+      <source src="mov_bbb.ogg" type="video/ogg">
+      Your browser does not support video.
+    </video>
+  </article>
+
+  <!-- ARTICLE WITH AUDIO -->
+  <article>
+    <h2>Podcast: Web Basics</h2>
+    <p>
+      Listen to this short audio discussion on semantic HTML.
+    </p>
+
+    <audio controls>
+      <source src="horse.ogg" type="audio/ogg">
+      <source src="horse.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+  </article>
+
+</main>
+
+<aside>
+  <h3>Recent Posts</h3>
+  <ul>
+    <li>HTML Semantics</li>
+    <li>CSS Layouts</li>
+    <li>Web Media</li>
+  </ul>
+</aside>
+
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+        font-family: sans-serif;
+        padding: 20px;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
+    }
+
+    aside label,
+    aside fieldset {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    </style>
+</head>
+<body>
+
+<h1>Products</h1>
+
+<div class="layout">
+
+    <aside>
+        <h2>Filters</h2>
+
+        <label>
+            Max price:
+            <input type="range" id="price" min="0" max="5000" value="5000">
+            <span id="priceValue">5000</span>
+        </label>
+
+        <label>
+            Color:
+            <select id="color">
+                <option value="all">All</option>
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+            </select>
+        </label>
+
+        <fieldset>
+            <legend>Brand</legend>
+            <label><input type="checkbox" value="Nike" class="brand"> Nike</label>
+            <label><input type="checkbox" value="Adidas" class="brand"> Adidas</label>
+        </fieldset>
+
+        <label>
+            Rating:
+            <select id="rating">
+                <option value="0">All</option>
+                <option value="4">4+</option>
+                <option value="3">3+</option>
+            </select>
+        </label>
+    </aside>
+
+    <main id="products"></main>
+
+</div>
+
+<script>
+const products = [
+    { name: "Nike Shoes", price: 3000, color: "black", brand: "Nike", rating: 4 },
+    { name: "Adidas Jacket", price: 2500, color: "red", brand: "Adidas", rating: 5 },
+    { name: "Nike Cap", price: 800, color: "blue", brand: "Nike", rating: 3 }
+];
+
+const productsEl = document.getElementById("products");
+const priceEl = document.getElementById("price");
+const priceValueEl = document.getElementById("priceValue");
+const colorEl = document.getElementById("color");
+const ratingEl = document.getElementById("rating");
+const brandEls = document.querySelectorAll(".brand");
+
+function render(list) {
+    productsEl.innerHTML = "";
+
+    list.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "product";
+        div.textContent = `${p.name} - ${p.price}`;
+        productsEl.appendChild(div);
+    });
+}
+
+function filterProducts() {
+    const maxPrice = Number(priceEl.value);
+    const color = colorEl.value;
+    const rating = Number(ratingEl.value);
+
+    const brands = [...brandEls]
+        .filter(b => b.checked)
+        .map(b => b.value);
+
+    const result = products.filter(p =>
+        p.price <= maxPrice &&
+        (color === "all" || p.color === color) &&
+        (brands.length === 0 || brands.includes(p.brand)) &&
+        p.rating >= rating
+    );
+
+    render(result);
+}
+
+/* Events */
+priceEl.oninput = () => {
+    priceValueEl.textContent = priceEl.value;
+    filterProducts();
+};
+
+[colorEl, ratingEl].forEach(el =>
+    el.onchange = filterProducts
+);
+
+brandEls.forEach(b =>
+    b.onchange = filterProducts
+);
+
+/* Initial */
+render(products);
+
+</script>
+</body>
+</html>
+
+

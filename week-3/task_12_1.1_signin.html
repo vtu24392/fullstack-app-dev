@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+  <style>
+body {
+  font-family: sans-serif;
+  background: #f6f6f6;
+}
+
+.auth-container {
+  max-width: 360px;
+  margin: 80px auto;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+}
+
+  </style>
+</head>
+<body>
+
+<main class="auth-container">
+  <h1>Sign In</h1>
+
+  <form aria-labelledby="signin-title">
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        aria-required="true"
+        aria-label="Email address"
+      >
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        required
+        aria-required="true"
+        aria-label="Password"
+      >
+    </div>
+
+    <button type="submit">Sign In</button>
+  </form>
+</main>
+
+</body>
+</html>
